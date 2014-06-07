@@ -13,8 +13,8 @@ public class Click implements MouseListener {
     {
         int x = e.getX();
         int y = e.getY();
-        System.out.println("x :" + x);
-        System.out.println("y :" + x);
+        System.out.println("x: " + x);
+        System.out.println("y: " + x);
     }
     public void mouseEntered(MouseEvent e)
     {
