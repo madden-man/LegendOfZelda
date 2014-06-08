@@ -4,10 +4,8 @@ import java.awt.event.MouseListener;
  * Created by Avinash050411 on 6/7/2014.
  */
 public class Click implements MouseListener {
-    private boolean isGame;
-    public Click(boolean isGame)
+    public Click()
     {
-        this.isGame = isGame;
     }
     public void mouseClicked(MouseEvent e)
     {

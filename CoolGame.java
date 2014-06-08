@@ -24,7 +24,7 @@ public class CoolGame {
         frame.setLocationRelativeTo(null);
         start = new StartMenu();
         frame.add(start);
-        frame.validate();
+        frame.repaint();
     }
 
     public void startGame() {
