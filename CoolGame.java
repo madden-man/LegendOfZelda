@@ -1,17 +1,17 @@
 import javax.swing.*;
 import java.awt.*;
-
 /**
  * Created by tommy_000 on 6/7/2014.
  */
 public class CoolGame {
+    private JFrame frame;
+    private StartMenu start;
+  //private GamePane game;
     public static void main(String[] args) {
         CoolGame loz = new CoolGame();
         loz.create();
         loz.startGame();
     }
-
-    private JFrame frame;
 
     public CoolGame() {}
 
@@ -22,6 +22,8 @@ public class CoolGame {
         frame.setSize(new Dimension(806, 635));
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
+        start = new StartMenu();
+        frame.add(start);
         frame.validate();
     }
 
