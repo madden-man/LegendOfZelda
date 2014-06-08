@@ -1,4 +1,4 @@
-import java.awt.image.BufferedImage;
+import java.awt.*;
 
 /**
  * Created by Jimmy on 6/7/2014.
@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 public class Body {
     protected int x;
     protected int y;
-    protected BufferedImage image;
+    protected Image image;
 
     public Body()
     {}
@@ -19,7 +19,7 @@ public class Body {
     {
         return y;
     }
-    public int getImg()
+    public Image getImg()
     {
         return image;
     }

@@ -26,5 +26,5 @@ public class LivingBeing extends Body {
 
     public void attack()
     {}
-    public boolean collides(){}
+    public boolean collides(){return true;}
 }
