@@ -11,8 +11,18 @@ public class Click implements MouseListener {
     {
         int x = e.getX();
         int y = e.getY();
-        System.out.println("x: " + x);
-        System.out.println("y: " + x);
+        if(x >= 610 && x <= 800 && y >= 100 && y <= 145)
+        {
+            System.out.println("Credits");
+        }
+        else if(x >= 645 && x <= 800 && y >= 280 && y <= 325)
+        {
+            System.out.println("Start");
+        }
+        else if(x >= 610 && x <= 800 && y >= 455 && y <= 500)
+        {
+            System.out.println("Options");
+        }
     }
     public void mouseEntered(MouseEvent e)
     {
