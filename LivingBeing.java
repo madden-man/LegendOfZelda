@@ -1,3 +1,6 @@
+import javax.swing.*;
+import java.awt.*;
+
 /**
  * Created by Jimmy on 6/7/2014.
  */
@@ -9,9 +12,11 @@ public class LivingBeing extends Body {
     protected int age;
     protected Weapon weapon;
     protected Armor armor;
+    protected Image image;
 
-    public LivingBeing()
-    {}
+    public LivingBeing(String path) {
+        image = new ImageIcon("path").getImage();
+    }
 
     public void die()
     {}
