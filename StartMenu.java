@@ -5,7 +5,7 @@ public class StartMenu extends JPanel {
     private Image background;
     private Click click;
     public StartMenu() {
-        background = new ImageIcon("background.gif").getImage();
+        background = new ImageIcon("background.png").getImage();
         Dimension size = new Dimension(background.getWidth(null), background.getHeight(null));
         setPreferredSize(size);
         setMinimumSize(size);
