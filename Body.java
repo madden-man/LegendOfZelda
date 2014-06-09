@@ -8,8 +8,8 @@ public class Body {
     protected int y;
     protected Image image;
 
-    public Body()
-    {}
+    public Body() {
+    }
 
     public int getX()
     {
