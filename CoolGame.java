@@ -16,7 +16,7 @@ public class CoolGame {
     public CoolGame() {}
 
     public void create() {
-        frame = new JFrame("Legend Of Zelda!");
+        frame = new JFrame("The Sands of Time");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.setSize(new Dimension(806, 635));
