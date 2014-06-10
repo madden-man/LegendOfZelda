@@ -1,5 +1,8 @@
+import javax.swing.*;
+
 /**
  * Created by Avinash050411 on 6/9/2014.
  */
-public class Setup {
+//is JPanel where choose characteristics of player
+public class Setup extends JPanel {
 }

@@ -9,6 +9,7 @@ public class CoolGame {
     private StartMenu start;
     private Setup setup;
     private GamePanel game;
+    private Graphics2D g;
   //private Credits cred;
   //private Options opt;
     public static void main(String[] args) {
@@ -30,13 +31,20 @@ public class CoolGame {
         start.addMouseListener(start);
         frame.add(start);
         frame.repaint();
+        game = new GamePanel(this);
     }
     public void chooseSave() {
-
+        game.start();
     }
 
     public void startGame(int numOfSave) {
 
     }
-
+    public Graphics2D getGraphics()
+    {
+        return g;
+    }
+    public JFrame getFrame() {
+        return frame;
+    }
 }

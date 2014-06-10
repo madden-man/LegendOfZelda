@@ -12,10 +12,9 @@ public class LivingBeing extends Body {
     protected int age;
     protected Weapon weapon;
     protected Armor armor;
-    protected Image image;
 
     public LivingBeing(String path) {
-        image = new ImageIcon("path").getImage();
+        image = new ImageIcon(path).getImage();
     }
 
     public void die()

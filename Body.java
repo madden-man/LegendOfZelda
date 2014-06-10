@@ -1,4 +1,8 @@
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by Jimmy on 6/7/2014.
@@ -23,5 +27,6 @@ public class Body {
     {
         return image;
     }
-    public void act() {};
+    public void act() {}
+    public void setImg(Image img) { image = img;}
 }
