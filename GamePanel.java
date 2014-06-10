@@ -27,7 +27,8 @@ public class GamePanel extends JPanel {
     }
 
     public void paintComponent(Graphics g) {
-        g.clearRect(0, 0, 500, 500);
-        g.drawImage((new Player("player.png")).getImg(), 100, 100, null);
+        g.clearRect(0, 0, 800, 600);
+        Player player = new Player("player.png", 100, 100);
+        g.drawImage(player.getImg(), player.getPosition()[0], player.getPosition()[1], null);
     }
 }

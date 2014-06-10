@@ -13,7 +13,8 @@ public class LivingBeing extends Body {
     protected Weapon weapon;
     protected Armor armor;
 
-    public LivingBeing(String path) {
+    public LivingBeing(String path, int x, int y) {
+        super(x, y);
         image = new ImageIcon(path).getImage();
     }
 

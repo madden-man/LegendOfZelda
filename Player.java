@@ -8,8 +8,8 @@ import java.io.File;
 public class Player extends LivingBeing{
     private String path;
 
-    public Player(String path)
+    public Player(String path, int x, int y)
     {
-        super(path);
+        super(path, x, y);
     }
 }
