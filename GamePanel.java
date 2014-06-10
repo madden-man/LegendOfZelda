@@ -23,6 +23,7 @@ public class GamePanel extends JPanel {
         JFrame frame = game.getFrame();
         frame.getContentPane().removeAll();
         frame.add(this);
+        frame.addKeyListener(new InputManager());
         frame.revalidate();
         World world = new World(20, this);
         world.beginGame();

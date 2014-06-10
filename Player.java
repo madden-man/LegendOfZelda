@@ -18,13 +18,13 @@ public class Player extends LivingBeing{
         velocity[X] = 0;
         velocity[Y] = 0;
         if (InputManager.W) {
-            velocity[Y] += normalSpeed;
-        } else if (InputManager.A) {
-            velocity[X] += normalSpeed;
-        } else if (InputManager.S) {
             velocity[Y] += -normalSpeed;
-        } else if (InputManager.D) {
+        } else if (InputManager.A) {
             velocity[X] += -normalSpeed;
+        } else if (InputManager.S) {
+            velocity[Y] += normalSpeed;
+        } else if (InputManager.D) {
+            velocity[X] += normalSpeed;
         }
         velocity[X] += acceleration[X];
         velocity[Y] += acceleration[Y];

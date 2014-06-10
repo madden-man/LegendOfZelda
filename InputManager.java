@@ -2,6 +2,7 @@ import javafx.scene.input.KeyCode;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.security.Key;
 
 /**
  * Created by tommy_000 on 6/10/2014.
@@ -22,13 +23,13 @@ public class InputManager implements KeyListener {
     }
 
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyChar() == 'W') {
+        if (e.getKeyCode() == KeyEvent.VK_W) {
             W = true;
-        } else if (e.getKeyChar() == 'A') {
+        } else if (e.getKeyCode() == KeyEvent.VK_A) {
             A = true;
-        } else if (e.getKeyChar() == 'S') {
+        } else if (e.getKeyCode() == KeyEvent.VK_S) {
             S = true;
-        } else if (e.getKeyChar() == 'D') {
+        } else if (e.getKeyCode() == KeyEvent.VK_D) {
             D = true;
         } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
             ESC = true;
@@ -37,13 +38,13 @@ public class InputManager implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        if (e.getKeyChar() == 'W') {
+        if (e.getKeyCode() == KeyEvent.VK_W) {
             W = false;
-        } else if (e.getKeyChar() == 'A') {
+        } else if (e.getKeyCode() == KeyEvent.VK_A) {
             A = false;
-        } else if (e.getKeyChar() == 'S') {
+        } else if (e.getKeyCode() == KeyEvent.VK_S) {
             S = false;
-        } else if (e.getKeyChar() == 'D') {
+        } else if (e.getKeyCode() == KeyEvent.VK_D) {
             D = false;
         } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
             ESC = false;
