@@ -7,6 +7,7 @@ import java.io.File;
  */
 public class Player extends LivingBeing{
     private String path;
+    private final int normalSpeed = 5;
 
     public Player(String path, int x, int y)
     {
@@ -14,6 +15,17 @@ public class Player extends LivingBeing{
     }
 
     public void act() {
+        velocity[X] = 0;
+        velocity[Y] = 0;
+        if (InputManager.W) {
+            velocity[Y] += normalSpeed;
+        } else if (InputManager.A) {
+            velocity[X] += normalSpeed;
+        } else if (InputManager.S) {
+            velocity[Y] += -normalSpeed;
+        } else if (InputManager.D) {
+            velocity[X] += -normalSpeed;
+        }
         velocity[X] += acceleration[X];
         velocity[Y] += acceleration[Y];
         position[X] += velocity[X];

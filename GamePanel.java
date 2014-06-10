@@ -24,11 +24,16 @@ public class GamePanel extends JPanel {
         frame.getContentPane().removeAll();
         frame.add(this);
         frame.revalidate();
+        World world = new World(20, this);
+        world.beginGame();
     }
 
     public void paintComponent(Graphics g) {
         g.clearRect(0, 0, 800, 600);
-        Player player = new Player("player.png", 100, 100);
-        g.drawImage(player.getImg(), player.getPosition()[0], player.getPosition()[1], null);
+        for (int i = 0; i < World.bodies.size(); i++) {
+            Body body = World.bodies.get(i);
+            g.drawImage(body.getImg(), body.getPosition()[0], body.getPosition()[1], null);
+        }
+
     }
 }
