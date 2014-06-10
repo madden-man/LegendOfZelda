@@ -5,11 +5,12 @@ import java.awt.*;
  */
 public class CoolGame {
     private JFrame frame;
+    private Inventory invent;
     private StartMenu start;
+    private Setup setup;
+    private GamePanel game;
   //private Credits cred;
-  //private ChooseSave save;
   //private Options opt;
-  //private GamePane game;
     public static void main(String[] args) {
         CoolGame loz = new CoolGame();
         loz.create();
