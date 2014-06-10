@@ -12,4 +12,11 @@ public class Player extends LivingBeing{
     {
         super(path, x, y);
     }
+
+    public void act() {
+        velocity[X] += acceleration[X];
+        velocity[Y] += acceleration[Y];
+        position[X] += velocity[X];
+        position[Y] += velocity[Y];
+    }
 }
