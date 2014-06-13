@@ -8,25 +8,39 @@ import java.io.IOException;
  * Created by Jimmy on 6/7/2014.
  */
 public class Body {
-    protected int x;
-    protected int y;
+    protected int[] position;
+    protected double[] velocity;
+    protected double[] acceleration;
+    protected final int X = 0;
+    protected final int Y = 1;
     protected Image image;
 
-    public Body() {
+    public Body(int x, int y) {
+        position = new int[2];
+        velocity = new double[2];
+        acceleration = new double[2];
+        position[X] = x;
+        position[Y] = y;
     }
 
-    public int getX()
-    {
-        return x;
+    public int[] getPosition() {
+        return position;
     }
-    public int getY()
-    {
-        return y;
+
+    public double[] getVelocity() {
+        return velocity;
     }
-    public Image getImg()
-    {
+
+    public double[] getAcceleration() {
+        return acceleration;
+    }
+
+    public Image getImg() {
         return image;
     }
-    public void act() {}
-    public void setImg(Image img) { image = img;}
+    public void act() { }
+
+    public void setImg(Image img) {
+        image = img;
+    }
 }

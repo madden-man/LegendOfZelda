@@ -23,11 +23,18 @@ public class GamePanel extends JPanel {
         JFrame frame = game.getFrame();
         frame.getContentPane().removeAll();
         frame.add(this);
+        frame.addKeyListener(new InputManager());
         frame.revalidate();
+        World world = new World(20, this);
+        world.beginGame();
     }
 
     public void paintComponent(Graphics g) {
-        g.clearRect(0, 0, 500, 500);
-        g.drawImage((new Player("player.png")).getImg(), 100, 100, null);
+        g.clearRect(0, 0, 800, 600);
+        for (int i = 0; i < World.bodies.size(); i++) {
+            Body body = World.bodies.get(i);
+            g.drawImage(body.getImg(), body.getPosition()[0], body.getPosition()[1], null);
+        }
+
     }
 }
