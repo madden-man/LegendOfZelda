@@ -26,6 +26,7 @@ public class GamePanel extends JPanel {
         frame.addKeyListener(new InputManager());
         frame.revalidate();
         World world = new World(20, this);
+        world.setUp();
         world.beginGame();
     }
 

@@ -14,6 +14,7 @@ public class Body {
     protected final int X = 0;
     protected final int Y = 1;
     protected Image image;
+    protected String name;
 
     public Body(int x, int y) {
         position = new int[2];
@@ -43,4 +44,12 @@ public class Body {
     public void setImg(Image img) {
         image = img;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setX(int x) { position[X] = x;}
+
+    public void setY(int y) { position[Y] = y;}
 }

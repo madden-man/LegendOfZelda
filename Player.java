@@ -12,6 +12,7 @@ public class Player extends LivingBeing{
     public Player(String path, int x, int y)
     {
         super(path, x, y);
+        name = "player";
     }
 
     public void act() {
@@ -25,6 +26,9 @@ public class Player extends LivingBeing{
             velocity[Y] += normalSpeed;
         } if (InputManager.D) {
             velocity[X] += normalSpeed;
+        }
+        if(InputManager.Q) {
+            World.save();
         }
         velocity[X] += acceleration[X];
         velocity[Y] += acceleration[Y];

@@ -1,5 +1,6 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
 import java.util.*;
 import javax.swing.Timer;
 
@@ -17,8 +18,6 @@ public class World {
         this.howOften = howOften;
         this.panel = panel;
         bodies = new ArrayList<Body>();
-        Player player = new Player("player.png", 100, 100);
-        bodies.add(player);
     }
 
     public void beginGame() {
@@ -36,6 +35,117 @@ public class World {
     public void step() {
         for (int i = 0; i < bodies.size(); i++) {
             bodies.get(i).act();
+        }
+    }
+
+    public static void save()
+    {
+        try {
+            String path = "C:\\Users\\Jimmy\\IdeaProjects\\LegendOfZelda\\appProperties.txt";
+            Properties applicationProps = new Properties();
+
+// now saves data
+            reset();
+            FileOutputStream out = new FileOutputStream(path);
+            String answer = "";
+            for(int i = 0; i < bodies.size(); i++)
+            {
+                Body body = bodies.get(i);
+                int[] pos = body.getPosition();
+                int x = pos[0];
+                int y = pos[1];
+                String duplicateBodies = applicationProps.getProperty(body.getName());
+                if(duplicateBodies != null)
+                    answer = "" +duplicateBodies +x +", " +y +";";
+                else
+                    answer = "" +x +", " +y +";";
+                applicationProps.setProperty(body.getName(), answer);
+            }
+            applicationProps.store(out, "List of Bodies and Locations");
+            out.close();
+        }
+        catch(IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void setUp()
+    {
+        try {
+            String path = "C:\\Users\\Jimmy\\IdeaProjects\\LegendOfZelda\\appProperties.txt";
+            Properties applicationProps = new Properties();
+
+// now load properties
+// from last invocation
+            FileInputStream in = new FileInputStream(path);
+            applicationProps.load(in);
+            Object[] DiffBodies = applicationProps.stringPropertyNames().toArray();
+            for(int bodyNum = 0; bodyNum < DiffBodies.length; bodyNum++)
+            {
+                String name = (String)(DiffBodies[bodyNum]);
+                String loc = applicationProps.getProperty(name);
+                String x = "";
+                String y = "";
+                int commaPlace=0;
+                for(int i = 0; i < loc.length(); i++)
+                {
+                    if(loc.charAt(i) == ',') {
+                        x = loc.substring(0, i);
+                        commaPlace = i;
+                    }
+                    if(loc.charAt(i) == ';') {
+                        y = loc.substring(commaPlace+2, i);
+                        Body body = makeBody(name);
+                        body.setX(Integer.parseInt(x));
+                        body.setY(Integer.parseInt(y));
+                        bodies.add(body);
+                    }
+                }
+            }
+            in.close();
+            FileOutputStream out = new FileOutputStream(path);
+            applicationProps.store(out, "---No Comment---");
+            out.close();
+        }
+        catch(IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public Body makeBody(String name)
+    {
+        if(name.equals("player"))
+        {
+            return (Body)(new Player("player.png", 100, 100));
+        }
+        else
+        {
+            return null;
+        }
+
+    }
+
+    public static void reset()
+    {
+        try {
+            String path = "C:\\Users\\Jimmy\\IdeaProjects\\LegendOfZelda\\appProperties.txt";
+            Properties applicationProps = new Properties();
+
+// now load properties
+// from last invocation
+            FileInputStream in = new FileInputStream(path);
+            applicationProps.load(in);
+            Object[] DiffBodies = applicationProps.stringPropertyNames().toArray();
+            for(int i = 0; i < DiffBodies.length; i++)
+            {
+                applicationProps.remove((String)(DiffBodies[i]));
+            }
+        }
+        catch(IOException e)
+        {
+            System.out.println(e.getMessage());
         }
     }
 }

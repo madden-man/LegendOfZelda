@@ -12,6 +12,7 @@ public class InputManager implements KeyListener {
     public static boolean A;
     public static boolean S;
     public static boolean D;
+    public static boolean Q;
     public static boolean ESC;
 
     public InputManager() {
@@ -19,6 +20,7 @@ public class InputManager implements KeyListener {
         A = false;
         S = false;
         D = false;
+        Q = false;
         ESC = false;
     }
 
@@ -33,6 +35,8 @@ public class InputManager implements KeyListener {
             D = true;
         } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
             ESC = true;
+        } else if (e.getKeyCode() == KeyEvent.VK_Q) {
+            Q = true;
         }
     }
 
