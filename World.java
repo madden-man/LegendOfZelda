@@ -37,7 +37,8 @@ public class World {
             bodies.get(i).act();
         }
     }
-
+    //pre: need a .txt file with its location being the String path in the code.
+    //saves all Bodies and their locations
     public static void save()
     {
         try {
@@ -69,7 +70,8 @@ public class World {
             System.out.println(e.getMessage());
         }
     }
-
+    //pre: need a .txt file with its location being path. Type "player=xLocation, yLocation;" without quotes to set player's location. don't forgot the comma, space, and semicolon
+    //makes all bodies and sets their locations
     public void setUp()
     {
         try {
@@ -113,7 +115,7 @@ public class World {
             System.out.println(e.getMessage());
         }
     }
-
+    //converts string of body types to actual bodies
     public Body makeBody(String name)
     {
         if(name.equals("player"))
@@ -132,7 +134,6 @@ public class World {
         try {
             String path = "C:\\Users\\Jimmy\\IdeaProjects\\LegendOfZelda\\appProperties.txt";
             Properties applicationProps = new Properties();
-
 // now load properties
 // from last invocation
             FileInputStream in = new FileInputStream(path);
