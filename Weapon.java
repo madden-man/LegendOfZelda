@@ -1,6 +1,6 @@
 import java.awt.*;
 /**
- * Created by Jimmy on 6/7/2014.
+ *  Created by Jimmy on 6/7/2014.
  */
 public class Weapon extends Item{
     protected int sharpness;
