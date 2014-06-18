@@ -42,7 +42,7 @@ public class World {
     public static void save()
     {
         try {
-            String path = "C:\\Users\\Jimmy\\IdeaProjects\\LegendOfZelda\\appProperties.txt";
+            String path = "appProperties.txt";
             Properties applicationProps = new Properties();
 
 // now saves data
@@ -75,7 +75,7 @@ public class World {
     public void setUp()
     {
         try {
-            String path = "C:\\Users\\Jimmy\\IdeaProjects\\LegendOfZelda\\appProperties.txt";
+            String path = "appProperties.txt";
             Properties applicationProps = new Properties();
 
 // now load properties
@@ -132,7 +132,7 @@ public class World {
     public static void reset()
     {
         try {
-            String path = "C:\\Users\\Jimmy\\IdeaProjects\\LegendOfZelda\\appProperties.txt";
+            String path = "appProperties.txt";
             Properties applicationProps = new Properties();
 // now load properties
 // from last invocation
