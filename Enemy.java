@@ -3,6 +3,6 @@
  */
 public class Enemy extends LivingBeing {
     protected Body prey;
-    public Enemy(String name, int x, int y)
-    {super(name, x, y);}
+    public Enemy(String path, int x, int y)
+    {super(path, x, y);}
 }
