@@ -12,9 +12,10 @@ public class TestEnemy extends Enemy {
     {
         super(path, x, y);
     }
-    public void act()
-    {
+
+    public void act() {
         velocity[X] = 50;
         velocity[Y] = 50;
+        super.act();
     }
 }
