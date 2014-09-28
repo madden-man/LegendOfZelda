@@ -37,6 +37,16 @@ public class World {
             bodies.get(i).act();
         }
     }
+    //pre:
+    //post: changes position of all bodies except player
+    public static void changeBodiesPosition(int xChange, int yChange)
+    {
+        for(int i = 0; i < bodies.size(); i++)
+        {
+            Body body = bodies.get(i);
+            body.setPosition(body.getXPosition()+xChange, body.getYPosition()+yChange);
+        }
+    }
     //pre: need a .txt file with its location being the String path in the code.
     //saves all Bodies and their locations
     public static void save()

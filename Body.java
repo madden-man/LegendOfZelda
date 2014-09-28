@@ -24,14 +24,35 @@ public class Body {
         position[Y] = y;
         velocity[X] = 0;
         velocity[Y] = 0;
+        acceleration[X]=0;
+        acceleration[Y]=0;
     }
 
     public int[] getPosition() {
         return position;
     }
 
+    public void setPosition(int xPosition, int yPosition) {position[X] = xPosition;
+    position[Y] = yPosition;}
+
+    public int getXPosition() {return position[X];}
+
+    public int getYPosition() {return position[Y];}
+
     public double[] getVelocity() {
         return velocity;
+    }
+
+    public double getXVelocity() {return velocity[X];}
+
+    public double getYVelocity() {return velocity[Y];}
+
+    //pre: player overrides this
+    //post: sets velocity
+    public void setVelocity(double xVelocity, double yVelocity)
+    {
+        velocity[X]=xVelocity;
+        velocity[Y]=yVelocity;
     }
 
     public double[] getAcceleration() {

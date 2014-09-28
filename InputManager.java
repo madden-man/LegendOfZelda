@@ -25,6 +25,7 @@ public class InputManager implements KeyListener {
     }
 
     public void keyPressed(KeyEvent e) {
+        System.out.println("pressed");
         if (e.getKeyCode() == KeyEvent.VK_W) {
             W = true;
         } else if (e.getKeyCode() == KeyEvent.VK_A) {
