@@ -22,6 +22,8 @@ public class Body {
         acceleration = new double[2];
         position[X] = x;
         position[Y] = y;
+        velocity[X] = 0;
+        velocity[Y] = 0;
     }
 
     public int[] getPosition() {
@@ -39,7 +41,6 @@ public class Body {
     public Image getImg() {
         return image;
     }
-    public void act() { }
 
     public void setImg(Image img) {
         image = img;
@@ -52,4 +53,12 @@ public class Body {
     public void setX(int x) { position[X] = x;}
 
     public void setY(int y) { position[Y] = y;}
+
+    public void act()
+    {
+        velocity[X] += acceleration[X];
+        velocity[Y] += acceleration[Y];
+        position[X] += velocity[X];
+        position[Y] += velocity[Y];
+    }
 }

@@ -6,10 +6,9 @@ import java.io.File;
  * Created by Jimmy on 6/7/2014.
  */
 public class Player extends LivingBeing{
-    private String path;
     private final int normalSpeed = 5;
-
-    public Player(String path, int x, int y)
+    private static String path = "player.png";
+    public Player(int x, int y)
     {
         super(path, x, y);
         name = "player";

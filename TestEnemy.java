@@ -5,18 +5,16 @@ public class TestEnemy extends Enemy {
     protected static final int OLDAGE = 80;
     protected static final int REPRODUCTIONAGE = 20;
     protected static final int normalSpeed = 5;
+    private static String name = "TestEnemy";
+    private static String path = "Knight.gif";
 
-    public TestEnemy(String path, int x, int y)
+    public TestEnemy(int x, int y)
     {
         super(path, x, y);
     }
     public void act()
     {
-        velocity[X] = 0;
-        velocity[Y] = 0;
-        velocity[X] += acceleration[X];
-        velocity[Y] += acceleration[Y];
-        position[X] += velocity[X];
-        position[Y] += velocity[Y];
+        velocity[X] = 50;
+        velocity[Y] = 50;
     }
 }
