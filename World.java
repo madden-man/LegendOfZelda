@@ -120,7 +120,11 @@ public class World {
     {
         if(name.equals("player"))
         {
-            return (Body)(new Player("player.png", 100, 100));
+            return (Body)(new Player(100, 100));
+        }
+        else if(name.equals("TestEnemy"))
+        {
+            return (Body)(new TestEnemy(200, 200));
         }
         else
         {
