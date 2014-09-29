@@ -15,6 +15,7 @@ public class Body {
     protected final int Y = 1;
     protected Image image;
     protected String name;
+    protected int bodyID;
 
     public Body(int x, int y) {
         position = new int[2];
@@ -26,6 +27,8 @@ public class Body {
         velocity[Y] = 0;
         acceleration[X]=0;
         acceleration[Y]=0;
+        bodyID = World.getBodyNum();
+        World.addBodyNum();
     }
 
     public int[] getPosition() {
@@ -81,5 +84,9 @@ public class Body {
         velocity[Y] += acceleration[Y];
         position[X] += velocity[X];
         position[Y] += velocity[Y];
+    }
+    public void decreaseBodyID()
+    {
+        bodyID--;
     }
 }

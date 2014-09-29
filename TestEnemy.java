@@ -18,4 +18,11 @@ public class TestEnemy extends Enemy {
     {
         super.act();
     }
+    public boolean tooOld()
+    {
+        if(age>OLDAGE)
+            return true;
+        else
+            return false;
+    }
 }

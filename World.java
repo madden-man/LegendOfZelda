@@ -12,9 +12,11 @@ public class World {
     private int howOften;
     private GamePanel panel;
     public static ArrayList<Body> bodies;
+    private static int bodyNum;
 
     public World(int howOften, GamePanel panel) {
         step = 0;
+        bodyNum = 0;
         this.howOften = howOften;
         this.panel = panel;
         bodies = new ArrayList<Body>();
@@ -161,6 +163,23 @@ public class World {
         catch(IOException e)
         {
             System.out.println(e.getMessage());
+        }
+    }
+
+    public static void addBodyNum()
+    {
+        bodyNum++;
+    }
+
+    public static int getBodyNum()
+    { return bodyNum;}
+
+    public static void removeBodyNum(int bodyNum)
+    {
+        bodies.remove(bodyNum);
+        for(int i = bodyNum; i<bodies.size(); i++)
+        {
+            bodies.get(i).decreaseBodyID();
         }
     }
 }
