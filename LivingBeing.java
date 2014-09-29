@@ -34,8 +34,8 @@ public class LivingBeing extends Body {
         {}
     }
 
-    public void attack()
-    {}
+    public void attack() {}
+    
     public boolean collides(){return true;}
 
     public boolean tooOld() {return false;}
