@@ -21,6 +21,7 @@ public class World {
         this.howOften = howOften;
         this.panel = panel;
         bodies = new ArrayList<Body>();
+        bodies.add(new Player(50, 50));
         origBodies = new ArrayList<Body>();
     }
 
@@ -207,5 +208,12 @@ public class World {
         {
             bodies.add(origBodies.get(i));
         }
+    }
+
+    // pre: need one .txt file with ID's that represent the actual 10x10 items in the world called "area(#).txt" where # is the area the player is on
+    // post: creates the items that are supposed to be in the world on the actual screen and in the hard code
+    public void buildWorld() {
+        Player player = (Player)bodies.get(0);
+        player.getArea();
     }
 }
