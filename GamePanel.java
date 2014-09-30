@@ -31,7 +31,7 @@ public class GamePanel extends JPanel {
     }
 
     public void paintComponent(Graphics g) {
-        g.clearRect(0, 0, 800, 600);
+        g.clearRect(0, 0, CoolGame.getGamewidth(), CoolGame.getGameheight());
         for (int i = 0; i < World.bodies.size(); i++) {
             Body body = World.bodies.get(i);
             g.drawImage(body.getImg(), body.getPosition()[0], body.getPosition()[1], null);

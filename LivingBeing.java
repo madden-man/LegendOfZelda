@@ -47,9 +47,12 @@ public class LivingBeing extends Body {
     public void act()
     {
         age++;
-        reproduce();
-        super.act();
         if(tooOld())
             die();
+        else
+        {
+            reproduce();
+            super.act();
+        }
     }
 }

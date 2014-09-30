@@ -63,6 +63,8 @@ public class World {
             reset();
             FileOutputStream out = new FileOutputStream(path);
             String answer = "";
+            World.printBodies();
+            //converts enemies and scenery to txt
             for(int i = 0; i < bodies.size(); i++)
             {
                 Body body = bodies.get(i);
@@ -200,12 +202,20 @@ public class World {
         {
             bodies.get(i).decreaseBodyID();
         }
+        //printBodies();
     }
     public void copyBodies()
     {
         for(int i = 0; i<origBodies.size(); i++)
         {
             bodies.add(origBodies.get(i));
+        }
+    }
+    public static void printBodies()
+    {
+        for(int i = 0; i<bodies.size(); i++)
+        {
+            System.out.println(bodies.get(i));
         }
     }
 }

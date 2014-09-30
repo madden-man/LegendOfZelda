@@ -9,6 +9,8 @@ public class CoolGame {
     private StartMenu start;
     private Setup setup;
     private GamePanel game;
+    private static final int GAMEWIDTH = 806;
+    private static final int GAMEHEIGHT = 635;
   //private Credits cred;
   //private Options opt;
     public static void main(String[] args) {
@@ -23,7 +25,7 @@ public class CoolGame {
         frame = new JFrame("The Sands of Time");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
-        frame.setSize(new Dimension(806, 635));
+        frame.setSize(new Dimension(GAMEWIDTH, GAMEHEIGHT));
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
         start = new StartMenu(this);
@@ -41,5 +43,11 @@ public class CoolGame {
     }
     public JFrame getFrame() {
         return frame;
+    }
+
+    public static int getGamewidth() {return GAMEWIDTH;}
+
+    public static int getGameheight() {
+        return GAMEHEIGHT;
     }
 }

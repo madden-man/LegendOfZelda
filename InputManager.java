@@ -50,6 +50,8 @@ public class InputManager implements KeyListener {
             S = false;
         } else if (e.getKeyCode() == KeyEvent.VK_D) {
             D = false;
+        } else if (e.getKeyCode() == KeyEvent.VK_Q) {
+            Q = false;
         } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
             ESC = false;
         }
