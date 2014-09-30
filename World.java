@@ -12,6 +12,7 @@ public class World {
     private int howOften;
     private GamePanel panel;
     public static ArrayList<Body> bodies;
+    private ArrayList<Body> origBodies;
     private static int bodyNum;
 
     public World(int howOften, GamePanel panel) {
@@ -20,6 +21,7 @@ public class World {
         this.howOften = howOften;
         this.panel = panel;
         bodies = new ArrayList<Body>();
+        origBodies = new ArrayList<Body>();
     }
 
     public void beginGame() {
@@ -67,11 +69,12 @@ public class World {
                 int[] pos = body.getPosition();
                 int x = pos[0];
                 int y = pos[1];
+                int age = body.getAge();
                 String duplicateBodies = applicationProps.getProperty(body.getName());
                 if(duplicateBodies != null)
-                    answer = "" +duplicateBodies +x +", " +y +";";
+                    answer = "" +duplicateBodies +x +", " +y +", " +age +";";
                 else
-                    answer = "" +x +", " +y +";";
+                    answer = "" +x +", " +y +", " +age +";";
                 applicationProps.setProperty(body.getName(), answer);
             }
             applicationProps.store(out, "List of Bodies and Locations");
@@ -101,19 +104,30 @@ public class World {
                 String loc = applicationProps.getProperty(name);
                 String x = "";
                 String y = "";
+                String age = "";
                 int commaPlace=0;
+                int whichComma = 0;
                 for(int i = 0; i < loc.length(); i++)
                 {
-                    if(loc.charAt(i) == ',') {
+                    if(loc.charAt(i) == ',' && whichComma==0) {
                         x = loc.substring(0, i);
                         commaPlace = i;
+                        whichComma++;
+                    }
+                    else if(loc.charAt(i) == ',' && whichComma==1) {
+                        System.out.println("" +commaPlace +" " +i);
+                        y = loc.substring(commaPlace+2, i);
+                        commaPlace = i;
+                        whichComma++;
                     }
                     if(loc.charAt(i) == ';') {
-                        y = loc.substring(commaPlace+2, i);
+                        age = loc.substring(commaPlace+2, i);
                         Body body = makeBody(name);
                         body.setX(Integer.parseInt(x));
                         body.setY(Integer.parseInt(y));
-                        bodies.add(body);
+                        body.setAge(Integer.parseInt(age));
+                        origBodies.add(body);
+                        whichComma = 0;
                     }
                 }
             }
@@ -121,6 +135,7 @@ public class World {
             FileOutputStream out = new FileOutputStream(path);
             applicationProps.store(out, "---No Comment---");
             out.close();
+            copyBodies();
         }
         catch(IOException e)
         {
@@ -137,6 +152,10 @@ public class World {
         else if(name.equals("TestEnemy"))
         {
             return (Body)(new TestEnemy(200, 200));
+        }
+        else if(name.equals("Paladin"))
+        {
+            return (Body)(new Paladin(200, 200));
         }
         else
         {
@@ -180,6 +199,13 @@ public class World {
         for(int i = bodyNum; i<bodies.size(); i++)
         {
             bodies.get(i).decreaseBodyID();
+        }
+    }
+    public void copyBodies()
+    {
+        for(int i = 0; i<origBodies.size(); i++)
+        {
+            bodies.add(origBodies.get(i));
         }
     }
 }

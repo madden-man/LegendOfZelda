@@ -16,6 +16,7 @@ public class Body {
     protected Image image;
     protected String name;
     protected int bodyID;
+    protected int age;
 
     public Body(int x, int y) {
         position = new int[2];
@@ -27,6 +28,7 @@ public class Body {
         velocity[Y] = 0;
         acceleration[X]=0;
         acceleration[Y]=0;
+        age = 0;
         bodyID = World.getBodyNum();
         World.addBodyNum();
     }
@@ -89,4 +91,9 @@ public class Body {
     {
         bodyID--;
     }
+    //pre:
+    //post: does nothing. just so World's setUp() method is happy.
+    public void setAge(int age)
+    {this.age =age;}
+    public int getAge() {return age;}
 }

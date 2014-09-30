@@ -1,23 +1,23 @@
 /**
- * Created by Jimmy on 6/7/2014.
+ * Created by Jimmy on 9/29/2014.
  */
-public class TestEnemy extends Enemy {
-    protected static final int OLDAGE = 160;
+public class Paladin extends Enemy{
+    protected static final int OLDAGE = 80;
     protected static final int REPRODUCTIONAGE = 20;
     protected static final int normalSpeed = 1;
-    private static String path = "Knight.gif";
+    private static String path = "Paladin.gif";
 
-    public TestEnemy(int x, int y)
+    public Paladin(int x, int y)
     {
         super(path, x, y);
-        name = "TestEnemy";
+        name = "Paladin";
         velocity[X] = normalSpeed;
         velocity[Y] = normalSpeed;
     }
-    public TestEnemy(int x, int y, int age)
+    public Paladin(int x, int y, int age)
     {
         super(path, x, y, age);
-        name = "TestEnemy";
+        name = "Paladin";
         velocity[X] = normalSpeed;
         velocity[Y] = normalSpeed;
     }

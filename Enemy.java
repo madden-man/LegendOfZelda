@@ -5,4 +5,6 @@ public class Enemy extends LivingBeing {
     protected Body prey;
     public Enemy(String path, int x, int y)
     {super(path, x, y);}
+    public Enemy(String path, int x, int y, int age)
+    {super(path, x, y, age);}
 }

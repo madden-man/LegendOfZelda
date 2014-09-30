@@ -9,13 +9,17 @@ public class LivingBeing extends Body {
     protected int movementSpeed;
     protected int attack;
     protected int range;
-    protected int age;
     protected Weapon weapon;
     protected Armor armor;
 
     public LivingBeing(String path, int x, int y) {
         super(x, y);
         age = 0;
+        image = new ImageIcon(path).getImage();
+    }
+    public LivingBeing(String path, int x, int y, int age) {
+        super(x, y);
+        this.age = age;
         image = new ImageIcon(path).getImage();
     }
     //pre:
