@@ -6,6 +6,7 @@ import java.io.File;
  * Created by Jimmy on 6/7/2014.
  */
 public class Player extends LivingBeing{
+    private int area;
     private final int normalSpeed = 1;
     private final int friction = 50;
     private static String path = "player.png";
@@ -13,6 +14,7 @@ public class Player extends LivingBeing{
     {
         super(path, x, y);
         name = "player";
+        area = 1;
     }
 
     //pre:
@@ -59,5 +61,13 @@ public class Player extends LivingBeing{
             reproduce();
         }
 
+    }
+
+    public int getArea() {
+        return area;
+    }
+
+    public void setArea(int area) {
+        this.area = area;
     }
 }
