@@ -14,6 +14,7 @@ public class World {
     public static ArrayList<Body> bodies;
     private ArrayList<Body> origBodies;
     private static int bodyNum;
+    private static Player ThePlayer;
 
     public World(int howOften, GamePanel panel) {
         step = 0;
@@ -21,7 +22,9 @@ public class World {
         this.howOften = howOften;
         this.panel = panel;
         bodies = new ArrayList<Body>();
-        //bodies.add(new Player(50, 50));
+        Player player = new Player(50, 50);
+        bodies.add(player);
+        ThePlayer=player;
         origBodies = new ArrayList<Body>();
     }
 
@@ -88,9 +91,56 @@ public class World {
             System.out.println(e.getMessage());
         }
     }
+
+    //needs map.txt
+    //makes things where located in map.txt
+    public void setUp() {
+        new Player(0, 0);
+        try {
+            File path = new File("map.txt");
+            Scanner input = new Scanner(path);
+            String line;
+            char thing;
+            int i = 0;
+            int factor = 10;
+            while (input.hasNext()) {
+                line = input.nextLine();
+                for (int j = 0; j < line.length(); j++) {
+                    thing = line.charAt(j);
+                    if (thing != ' ') {
+                        Body body = makeBody(thing);
+                        body.setX(factor*i);
+                        body.setY(factor*j);
+                        body.setAge(400);
+                        origBodies.add(body);
+                        System.out.println("I is " + i + " j is " + j + " b is " + body);
+                    }
+                }
+                i++;
+                copyBodies();
+            }
+        }
+        catch(IOException e)
+        {
+            e.getMessage();
+        }
+    }
+
+    //none
+    //returns body based on char in map.txt
+    public Body makeBody(char thing)
+    {
+        if(thing=='p')
+            return (Body)((new Paladin(200, 200)));
+        else if(thing=='t')
+            return (Body)(new TestEnemy(100, 100));
+        else
+            return (Body)((new Paladin(200, 200)));
+    }
+
     //pre: need a .txt file with its location being path. Type "player=xLocation, yLocation;" without quotes to set player's location. don't forgot the comma, space, and semicolon
     //makes all bodies and sets their locations
-    public void setUp()
+    public void AltsetUp()
     {
         try {
             String path = "appProperties.txt";
@@ -125,7 +175,7 @@ public class World {
                     }
                     if(loc.charAt(i) == ';') {
                         age = loc.substring(commaPlace+2, i);
-                        Body body = makeBody(name);
+                        Body body = AltmakeBody(name);
                         body.setX(Integer.parseInt(x));
                         body.setY(Integer.parseInt(y));
                         body.setAge(Integer.parseInt(age));
@@ -146,7 +196,7 @@ public class World {
         }
     }
     //converts string of body types to actual bodies
-    public Body makeBody(String name)
+    public Body AltmakeBody(String name)
     {
         if(name.equals("player"))
         {
@@ -224,5 +274,11 @@ public class World {
     public void buildWorld() {
         Player player = (Player)bodies.get(0);
         player.getArea();
+    }
+    //pre: ThePlayer has been set
+    //post: returns ThePlayer
+    public static Player getPlayer()
+    {
+        return ThePlayer;
     }
 }

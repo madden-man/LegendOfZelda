@@ -2,7 +2,7 @@
  * Created by Jimmy on 9/29/2014.
  */
 public class Paladin extends Enemy{
-    protected static final int OLDAGE = 80;
+    protected static final int OLDAGE = 800;
     protected static final int REPRODUCTIONAGE = 20;
     protected static final int normalSpeed = 1;
     private static String path = "Paladin.gif";
