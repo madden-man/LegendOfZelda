@@ -21,7 +21,7 @@ public class World {
         this.howOften = howOften;
         this.panel = panel;
         bodies = new ArrayList<Body>();
-        bodies.add(new Player(50, 50));
+        //bodies.add(new Player(50, 50));
         origBodies = new ArrayList<Body>();
     }
 
